@@ -26,4 +26,161 @@ const restaurant = {
       close: 24,
     },
   },
+
+  order: function (starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  },
+
+  orderDelivery: function (obj) {
+    console.log(obj);
+  },
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(`Here's your delicious pasta with ${ing1}, ${ing2}, ${ing3}`);
+  },
+
+  orderPizza: function (mainIngredients, ...otherIngredients) {
+    console.log(mainIngredients, otherIngredients);
+  },
 };
+
+restaurant.orderDelivery({
+  time: '22:30',
+  address: 'Via del Sole, 21',
+  mainIndex: 2,
+  starterIndex: 2,
+});
+// DESTRUCTURE ARRAYS
+/* 
+const arr = [2, 3, 4];
+const a = arr[0];
+const b = arr[1];
+const c = arr[2];
+
+// destructuring arrays - now the variables holds the respective elements from 0 -> arr.length -1
+const [x, y, z] = arr;
+console.log(x, y, z);
+
+const [first, second] = restaurant.categories; // takes the first and second element
+console.log(first, second);
+
+// take the first and third element - leave a space between as done in the given code
+// const [menu1, , menu3] = restaurant.starterMenu;
+
+// Retreive 2 return values from a function
+const [starter, mainCourse] = restaurant.order(2, 0);
+
+const nested = [2, 4, [5, 6]];
+
+const [i, , j] = nested;
+console.log(i, j);
+
+// alternative to get all values in new variables
+// const [i, [j, k]] = nested;
+// console.log(i,j,k);
+
+// Default values
+const [p = 1, q = 1, r = 1] = [8, 9];
+console.log(p, q, r); */
+
+// DESTRUCTURE OBJECTS
+/* const { name, openingHours, categories } = restaurant; // must use same variable names as in object when destructuring
+
+// here we give the destructured properties own names
+const {
+  name: restaurantName,
+  openingHours: hours,
+  categories: tags,
+} = restaurant;
+
+// with default values
+const { menu = [], starterMenu: starters = [] } = restaurant;
+
+// Mutating variables
+let a = 111;
+let b = 999;
+const obj = { a: 23, b: 7, c: 14 };
+
+({ a, b } = obj);
+
+// nested objects
+const {
+  fri: { open: o, close: c },
+} = openingHours;
+console.log(o, c); */
+
+// THE SPREAD OPERATOR
+/* const arr = [7, 8, 9];
+const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+console.log(badNewArr);
+
+// spread operatot '...' gjør at vi får alle elementene til arr i den nye arrayen uten at vi får en nested array
+const newArr = [1, 2, ...arr];
+console.log(newArr);
+
+console.log(...newArr);
+
+const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+console.log(newMenu);
+
+// Copy array
+const mainMenuCopy = [...restaurant.mainMenu];
+
+// Join 2 arrays
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+console.log(menu);
+
+// Iterables: arrays, strings, sets, maps, ... NOT Objects!
+const str = 'Jonas';
+const letters = [...str, ' ', 'S'];
+console.log(letters);
+
+// const ingredients = [
+//   prompt("Let's make pasta! Ingredient1?"),
+//   prompt('Ingredient2?'),
+//   prompt('Ingredient3?'),
+// ];
+// restaurant.orderPasta(...ingredients);
+
+// Objects
+const newRestaurant = { foundedIn: 1998, ...restaurant, founder: 'Guiseppe' };
+console.log(newRestaurant);
+
+const restaurantCopy = { ...restaurant };
+restaurantCopy.name = 'Ristorante Roma';
+console.log(restaurant);
+console.log(restaurantCopy); */
+
+// THE REST OPERATOR (because '...' is on the left hans side of the '=' sign)
+/* const [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(a, b, others);
+
+const [pizza, , risotto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+console.log(pizza, risotto, otherFood);
+
+// objects
+const { sat, ...weekdays } = restaurant.openingHours;
+console.log(weekdays);
+
+// Functions
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+    console.log(sum);
+  }
+};
+
+add(2, 3);
+const x = [2, 3, 4];
+add(...x);
+
+restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach');
+restaurant.orderPizza('mushtrooms'); */
+
+// THE FOR-OF LOOP
+for (const item of restaurant.starterMenu) {
+  console.log(item);
+}
