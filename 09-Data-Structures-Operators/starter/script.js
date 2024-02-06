@@ -181,6 +181,20 @@ restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach');
 restaurant.orderPizza('mushtrooms'); */
 
 // THE FOR-OF LOOP
-for (const item of restaurant.starterMenu) {
+/* for (const item of restaurant.starterMenu) {
   console.log(item);
 }
+ */
+
+const airline = 'TAP air Portugal';
+const plane = 'A320';
+
+console.log(plane[0]);
+console.log(plane[1]);
+console.log(plane[2]);
+console.log('B737'[0]);
+
+console.log(airline.length);
+console.log('B737'.length);
+
+console.log(airline.indexOf('r'));
