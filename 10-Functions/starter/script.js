@@ -186,7 +186,7 @@ const addVAT2 = addTaxTwo(0.23)(100);
 console.log(addVAT2); */
 
 // CODING CHALLENGE #1
-const poll = {
+/* const poll = {
   question: 'what is your favourite programming language?',
   options: ['0: JavaScript', '1: Python', '2: Rust', '3: C++'],
   // This generates array with [0, 0, 0, 0]
@@ -219,4 +219,80 @@ poll.registerNewAnswer = function (answer) {
 
 document
   .querySelector('.poll')
-  .addEventListener('click', poll.registerNewAnswer);
+  .addEventListener('click', poll.registerNewAnswer); */
+
+/* const runOnce = function () {
+  console.log(`this will never run again`);
+};
+
+// since this is in parenthesis it will run automatically without being 'invoked'
+(function () {
+  console.log(`this will never run again`);
+})();
+
+// CLOSURES
+const secureBooking = function () {
+  let passengerCount = 0;
+
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+  };
+};
+
+// booker now contains the returned function inside secureBooking
+const booker = secureBooking();
+
+booker();
+booker();
+booker();
+
+console.dir(booker); */
+
+// Example 1 - closures
+/* let f;
+
+let g = function () {
+  const a = 23;
+  f = function () {
+    console.log(a * 2);
+  };
+};
+
+const h = function () {
+  const b = 777;
+  f = function () {
+    console.log(b * 2);
+  };
+};
+g();
+f();
+console.dir(f);
+// re-assigning f() function;
+h();
+f();
+console.dir(f);
+
+// Example 2 - closures
+const boardPassengers = function (n, wait) {
+  const perGroup = n / 3;
+
+  setTimeout(function () {
+    console.log(`we are now boarding all ${n} passengers`);
+    console.log(`there are three groups, all with ${perGroup} passengers`);
+  }, wait * 1000);
+  console.log(`will start boarding in ${wait} seconds `);
+};
+
+boardPassengers(180, 3);
+ */
+
+// CODING CHALLENGE 2 - CLOSURES
+
+(function () {
+  const header = document.querySelector('h1');
+  header.style.color = 'red';
+  document.body.addEventListener('click', function () {
+    header.style.color = 'blue';
+  });
+})();
